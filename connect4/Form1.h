@@ -125,7 +125,8 @@ namespace connect4 {
 	private: System::Windows::Forms::RadioButton^  radioButton6;
 	private: System::Windows::Forms::RadioButton^  radioButton7;
 	private: System::Windows::Forms::Label^  label4;
-	private: System::Windows::Forms::RadioButton^  radioButton8;
+	private: System::Windows::Forms::Button^  button10;
+
 
 
 
@@ -172,7 +173,7 @@ namespace connect4 {
 			this->radioButton6 = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButton7 = (gcnew System::Windows::Forms::RadioButton());
 			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->radioButton8 = (gcnew System::Windows::Forms::RadioButton());
+			this->button10 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// textBox1
@@ -358,7 +359,7 @@ namespace connect4 {
 			// 
 			this->radioButton1->AutoSize = true;
 			this->radioButton1->BackColor = System::Drawing::Color::Transparent;
-			this->radioButton1->Location = System::Drawing::Point(227, 65);
+			this->radioButton1->Location = System::Drawing::Point(226, 94);
 			this->radioButton1->Name = L"radioButton1";
 			this->radioButton1->Size = System::Drawing::Size(31, 17);
 			this->radioButton1->TabIndex = 16;
@@ -371,7 +372,7 @@ namespace connect4 {
 			// 
 			this->radioButton2->AutoSize = true;
 			this->radioButton2->BackColor = System::Drawing::Color::Transparent;
-			this->radioButton2->Location = System::Drawing::Point(227, 89);
+			this->radioButton2->Location = System::Drawing::Point(226, 118);
 			this->radioButton2->Name = L"radioButton2";
 			this->radioButton2->Size = System::Drawing::Size(31, 17);
 			this->radioButton2->TabIndex = 17;
@@ -384,7 +385,7 @@ namespace connect4 {
 			// 
 			this->radioButton3->AutoSize = true;
 			this->radioButton3->BackColor = System::Drawing::Color::Transparent;
-			this->radioButton3->Location = System::Drawing::Point(227, 113);
+			this->radioButton3->Location = System::Drawing::Point(226, 142);
 			this->radioButton3->Name = L"radioButton3";
 			this->radioButton3->Size = System::Drawing::Size(31, 17);
 			this->radioButton3->TabIndex = 18;
@@ -397,7 +398,7 @@ namespace connect4 {
 			// 
 			this->radioButton4->AutoSize = true;
 			this->radioButton4->BackColor = System::Drawing::Color::Transparent;
-			this->radioButton4->Location = System::Drawing::Point(227, 137);
+			this->radioButton4->Location = System::Drawing::Point(226, 166);
 			this->radioButton4->Name = L"radioButton4";
 			this->radioButton4->Size = System::Drawing::Size(31, 17);
 			this->radioButton4->TabIndex = 19;
@@ -411,7 +412,7 @@ namespace connect4 {
 			this->radioButton5->AutoSize = true;
 			this->radioButton5->BackColor = System::Drawing::Color::Transparent;
 			this->radioButton5->Checked = true;
-			this->radioButton5->Location = System::Drawing::Point(227, 161);
+			this->radioButton5->Location = System::Drawing::Point(226, 190);
 			this->radioButton5->Name = L"radioButton5";
 			this->radioButton5->Size = System::Drawing::Size(31, 17);
 			this->radioButton5->TabIndex = 20;
@@ -424,7 +425,7 @@ namespace connect4 {
 			// 
 			this->radioButton6->AutoSize = true;
 			this->radioButton6->BackColor = System::Drawing::Color::Transparent;
-			this->radioButton6->Location = System::Drawing::Point(227, 185);
+			this->radioButton6->Location = System::Drawing::Point(226, 214);
 			this->radioButton6->Name = L"radioButton6";
 			this->radioButton6->Size = System::Drawing::Size(31, 17);
 			this->radioButton6->TabIndex = 21;
@@ -437,7 +438,7 @@ namespace connect4 {
 			// 
 			this->radioButton7->AutoSize = true;
 			this->radioButton7->BackColor = System::Drawing::Color::Transparent;
-			this->radioButton7->Location = System::Drawing::Point(227, 209);
+			this->radioButton7->Location = System::Drawing::Point(226, 238);
 			this->radioButton7->Name = L"radioButton7";
 			this->radioButton7->Size = System::Drawing::Size(31, 17);
 			this->radioButton7->TabIndex = 22;
@@ -452,24 +453,22 @@ namespace connect4 {
 			this->label4->BackColor = System::Drawing::Color::Transparent;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(211, 46);
+			this->label4->Location = System::Drawing::Point(210, 75);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(57, 13);
 			this->label4->TabIndex = 23;
 			this->label4->Text = L"Difficulty";
 			// 
-			// radioButton8
+			// button10
 			// 
-			this->radioButton8->AutoSize = true;
-			this->radioButton8->BackColor = System::Drawing::Color::Transparent;
-			this->radioButton8->Location = System::Drawing::Point(227, 233);
-			this->radioButton8->Name = L"radioButton8";
-			this->radioButton8->Size = System::Drawing::Size(31, 17);
-			this->radioButton8->TabIndex = 24;
-			this->radioButton8->TabStop = true;
-			this->radioButton8->Text = L"8";
-			this->radioButton8->UseVisualStyleBackColor = false;
-			this->radioButton8->CheckedChanged += gcnew System::EventHandler(this, &Form1::radioButton8_CheckedChanged);
+			this->button10->BackColor = System::Drawing::SystemColors::Control;
+			this->button10->Location = System::Drawing::Point(213, 46);
+			this->button10->Name = L"button10";
+			this->button10->Size = System::Drawing::Size(49, 23);
+			this->button10->TabIndex = 24;
+			this->button10->Text = L"Undo";
+			this->button10->UseVisualStyleBackColor = false;
+			this->button10->Click += gcnew System::EventHandler(this, &Form1::button10_Click);
 			// 
 			// Form1
 			// 
@@ -477,7 +476,7 @@ namespace connect4 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(282, 296);
-			this->Controls->Add(this->radioButton8);
+			this->Controls->Add(this->button10);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->radioButton7);
 			this->Controls->Add(this->radioButton6);
@@ -741,6 +740,7 @@ private: System::Void button8_Click(System::Object^  sender, System::EventArgs^ 
 			 button6->Enabled=true;
 			 button7->Enabled=true;
 			 button8->Enabled=false; // disable replay button when it is clicked
+			 button10->Enabled=true; // re-enable undo button
 		 }
 private: System::Void button9_Click(System::Object^  sender, System::EventArgs^  e) {
 			 exit(0);
@@ -768,6 +768,29 @@ private: System::Void radioButton7_CheckedChanged(System::Object^  sender, Syste
 		 }
 private: System::Void radioButton8_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 			 difficulty=8;
+		 }
+private: System::Void button10_Click(System::Object^  sender, System::EventArgs^  e) {
+			 // make self disabled again
+			 button10->Enabled=false;
+			 //make other buttons disabled temporarily
+			 button1->Enabled=false;
+			 button2->Enabled=false;
+			 button3->Enabled=false;
+			 button4->Enabled=false;
+			 button5->Enabled=false;
+			 button6->Enabled=false;
+			 button7->Enabled=false;
+			 // perform unplay
+			 initptr->unplay();
+			 textBox1->Text = initptr->sprint();
+			 // re-enable buttons
+			 if (initptr->islegal(0)) button1->Enabled=true;
+			 if (initptr->islegal(1)) button2->Enabled=true;
+			 if (initptr->islegal(2)) button3->Enabled=true;
+			 if (initptr->islegal(3)) button4->Enabled=true;
+			 if (initptr->islegal(4)) button5->Enabled=true;
+			 if (initptr->islegal(5)) button6->Enabled=true;
+			 if (initptr->islegal(6)) button7->Enabled=true;
 		 }
 };
 }

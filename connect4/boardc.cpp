@@ -192,7 +192,7 @@ using namespace std;
 
     // determine if game is over, as per Kruse & Ryba
     bool Board::gameover() const {
-	return (moves_played == 42) || isdefeat() || isvictory();
+		return (moves_played == 42) || isdefeat() || isvictory();
     }
 
     // play a move, as per Kruse & Ryba
@@ -204,11 +204,35 @@ using namespace std;
 	    }
 	    grid[attempt.col][row-1] = (int) pow((float)-1,moves_played);
 	    moves_played++;
+		if(moves_played % 2 == 1) {
+			last_player_move = attempt.col;
+		} else {
+			last_comp_move = attempt.col;
+		}
 	} else {
 	    cout << "Play attempted to write to nonempty cell. Turn is forfeit" << endl;
 	    moves_played++;
 	}
     }
+
+	// unplay the last player move and last computer move
+	void Board::unplay() {
+		// find the first non-zero entry in the last computer move's column
+		int row = 0;
+		while(row < 6 && grid[last_comp_move][row] == 0) {
+			row++;
+		}
+		grid[last_comp_move][row] = 0;
+		moves_played--;
+		
+		// do the same for the last player move
+		row = 0;
+		while(row < 6 && grid[last_player_move][row] == 0) {
+			row++;
+		}
+		grid[last_player_move][row] = 0;
+		moves_played--;
+	}
 
     // play a move, as per Kruse & Ryba
     void Board::play(int attempt) {
@@ -219,7 +243,13 @@ using namespace std;
 	    }
 	    grid[attempt][row-1] = (int) pow((float)-1,moves_played);
 	    moves_played++;
+		if(moves_played % 2 == 1) {
+			last_player_move = attempt;
+		} else {
+			last_comp_move = attempt;
+		}
 	} else {
+		// turn is forfeit
 		moves_played++;
 	}
     }
